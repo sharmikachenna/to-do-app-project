@@ -1,0 +1,274 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- PAGE BACKGROUND ---------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url('image.jpg') center center / cover no-repeat;
+  color: #fff;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  overflow-y: auto;
+  max-height: 85vh;
+  scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- TITLE ---------- */
+h1 {
+  text-align: center;
+  font-size: clamp(22px, 4vw, 28px);
+  color: #fff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- INPUT AREA ---------- */
+.input-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* Input box */
+#taskInput {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: clamp(14px, 2vw, 16px);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  min-width: 0;
+}
+
+/* Add Button */
+#addTaskBtn {
+  padding: 10px 15px;
+  font-size: clamp(14px, 2vw, 16px);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2e60dc;
+  color: #fff;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+#addTaskBtn:hover {
+  background: #8a8cba;
+  transform: scale(1.05);
+}
+
+/* ---------- ERROR MESSAGE ---------- */
+#error {
+  text-align: center;
+  font-size: clamp(12px, 2vw, 14px);
+  color: #ff8c8c;
+  margin-top: 6px;
+}
+
+/* ---------- PROGRESS SECTION ---------- */
+#progress {
+  text-align: center;
+  color: #e4e1e4;
+  font-size: clamp(16px, 2.5vw, 18px);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-shadow: 0 0 6px #ebe9ec;
+}
+
+/* ---------- TASK LIST ---------- */
+ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+/* Single Task Item */
+li {
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background 0.3s;
+  flex-wrap: nowrap;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Checkbox */
+li input[type="checkbox"] {
+  width: clamp(16px, 2vw, 18px);
+  height: clamp(16px, 2vw, 18px);
+  flex-shrink: 0;
+  accent-color: #52a54f;
+}
+
+/* Task Text */
+li span.task-text {
+  flex: 1;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.4;
+  margin: 0 10px;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* Buttons inside task */
+li .task-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Completed Task */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* ---------- EDIT / DELETE BUTTONS ---------- */
+button.edit,
+button.delete {
+  border: none;
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+}
+
+button.edit {
+  background: #52a54f;
+  box-shadow: 0 0 8px rgba(91, 226, 105, 0.5);
+}
+
+button.edit:hover {
+  background: #91b08e;
+  transform: scale(1.08);
+}
+
+button.delete {
+  background: #c64e4b;
+  box-shadow: 0 0 8px rgba(222, 92, 77, 0.5);
+}
+
+button.delete:hover {
+  background: #9f5252;
+  transform: scale(1.08);
+}
+
+/* ---------- DONE MESSAGE ---------- */
+#doneMsg {
+  text-align: center;
+  margin-top: 15px;
+  color: #ffb347;
+  font-weight: 600;
+  font-size: clamp(16px, 2.5vw, 18px);
+  text-shadow: 0 0 10px #e34c01;
+}
+
+/* ---------- CONFETTI CANVAS ---------- */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* For tablets and medium screens */
+@media (max-width: 992px) {
+  .container {
+    width: 92%;
+  }
+}
+
+/* For mobiles */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+  li {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  #taskInput,
+  #addTaskBtn {
+    padding: 8px 10px;
+  }
+}
+/* ----------  MOBILE FIX ---------- */
+@media (max-width: 600px) {
+
+  /* Keep the whole row in ONE LINE */
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;   /* nothing goes down */
+  }
+
+  /* Checkbox */
+  li input[type="checkbox"] {
+    flex-shrink: 0;
+  }
+
+  /* Text stays inline */
+  li span.task-text {
+    flex: 1;
+    word-break: break-word;
+  }
+
+  /* Buttons MUST stay inline */
+  li .task-buttons {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  /* EDIT INPUT stays inline  */
+  li .edit-input {
+    flex: 1;              /* takes remaining space */
+    min-width: 100px;     /* prevents squeezing too small */
+    margin-left: 10px;
+  }
+}

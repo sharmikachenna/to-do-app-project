@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Confetti Canvas (for celebration animation) -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h1>To-Do App</h1>
+
+    <!-- Input area for adding new tasks -->
+    <div class="input-area">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <button id="addTaskBtn">Add</button>
+    </div>
+
+    <!-- Error message (shown when no input is entered) -->
+    <p id="error"></p>
+
+    <!-- Task progress display (e.g., "2/5 tasks done") -->
+    <p id="progress">0/0 tasks done</p>
+
+    <!-- Unordered list for tasks -->
+    <ul id="taskList"></ul>
+
+    <!-- Completion message (e.g., "All tasks done!") -->
+    <p id="doneMsg"></p>
+  </div>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
